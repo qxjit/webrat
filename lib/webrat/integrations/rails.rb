@@ -1,5 +1,5 @@
 require "action_controller"
-require "action_controller/integration"
+require "action_dispatch/testing/integration"
 
 module ActionController #:nodoc:
   IntegrationTest.class_eval do

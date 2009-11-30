@@ -110,8 +110,9 @@ module Webrat
   protected
 
     def parse_rails_request_params(params)
-      if defined?(ActionController::AbstractRequest)
-        ActionController::AbstractRequest.parse_query_parameters(params)
+      if defined?(ActionController::AbstractRequest) &&
+        ActionController::AbstractRequest.respond_to?(:parse_query_parameters)
+          ActionController::AbstractRequest.parse_query_parameters(params)
       elsif defined?(ActionController::UrlEncodedPairParser)
         # For Rails > 2.2
         ActionController::UrlEncodedPairParser.parse_query_parameters(params)

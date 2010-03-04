@@ -11,6 +11,7 @@ module Webrat
     def logger # :nodoc:
       case Webrat.configuration.mode
       when :rails
+        return Rails.logger if defined?(Rails.logger)
         defined?(RAILS_DEFAULT_LOGGER) ? RAILS_DEFAULT_LOGGER : nil
       when :merb
         ::Merb.logger

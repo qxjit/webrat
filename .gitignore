@@ -17,3 +17,4 @@ test_apps
 bin
 vendor/gems
 .bundle
+tags
